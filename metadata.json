@@ -1,0 +1,6 @@
+{
+  "name": "Michael Smith — Portfolio",
+  "description": "Dark portfolio landing page for designer and fullstack creator Michael Smith featuring HLS video, GSAP parallax, selected works, and creative explorations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Researcher';
+  src: url('/fonts/researcher/otf/researcher-researcher-regular-400.otf') format('opentype'),
+       url('/fonts/researcher/ttf/researcher-researcher-regular-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Researcher';
+  src: url('/fonts/researcher/otf/researcher-researcher-bold-700.otf') format('opentype'),
+       url('/fonts/researcher/ttf/researcher-researcher-bold-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FC Retrofit';
+  src: local('FC Retrofit'),
+       local('FC Retrofit Regular'),
+       local('FCRetrofit'),
+       local('FC-Retrofit'),
+       local('FC Retrofit Bold');
+  font-display: swap;
+}
+
+:root {
+  --font-body: 'Inter', 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+  --font-display: 'Instrument Serif', serif;
+  --font-prompt: 'Prompt', 'IBM Plex Sans Thai', sans-serif;
+  --font-researcher: 'Researcher', sans-serif;
+  --font-fc-retrofit: 'FC Retrofit', 'FCRetrofit', 'FC-Retrofit', 'Chakra Petch', 'Prompt', sans-serif;
+
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  --accent: 0 0% 96%;
+}
+
+@theme {
+  --font-body: var(--font-body);
+  --font-display: var(--font-display);
+  --font-prompt: var(--font-prompt);
+  --font-researcher: var(--font-researcher);
+  --font-fc-retrofit: var(--font-fc-retrofit);
+
+  --color-bg: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-text-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-accent: hsl(var(--accent));
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Accent Gradient Utility */
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+
+.accent-gradient-reverse {
+  background: linear-gradient(270deg, #89AACC 0%, #4E85BF 100%);
+}
+
+/* Halftone Pattern */
+.bg-halftone {
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Custom Keyframes */
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes role-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+.animate-role-fade-in {
+  animation: role-fade-in 0.4s ease-out forwards;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* Gradient hover ring utilities */
+.hover-gradient-ring {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hover-gradient-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.hover-gradient-ring:hover::before {
+  opacity: 1;
+}
